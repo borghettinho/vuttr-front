@@ -19,7 +19,7 @@ const App = () => {
         <form>
           <input type="text" placeholder="search" />
           <input type="checkbox" name="toggle-tag" id="toggle-tag" />
-          <label for="toggle-tag">Search in tags only</label>
+          <label htmlFor="toggle-tag">Search in tags only</label>
         </form>
 
         {/* This calls the "AddArticle" action */}
