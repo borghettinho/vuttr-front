@@ -8,10 +8,14 @@ const sectionStyles = {
 };
 
 const App = () => {
-  const [tools, setTools] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
-    getTools().then(response => setTools(response));
+    getTools().then(results => {
+      setResults(results);
+      setIsLoading(false);
+    });
   }, []);
 
   return (
@@ -34,7 +38,12 @@ const App = () => {
       </section>
 
       <main>
-        <p>{tools.length}</p>
+        {isLoading ? <p>Loading...</p> : null}
+        {results.map(result => (
+          <div key={result.key}>
+            <p>Title: {result.title}</p>
+          </div>
+        ))}
       </main>
     </div>
   );
