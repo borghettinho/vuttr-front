@@ -5,7 +5,7 @@ const baseUrl = "http://localhost:3000/tools";
 let getTools = () =>
   Axios.get(baseUrl)
     .catch(e => console.log(e))
-    .then(response => console.log(response.data));
+    .then(response => response.data);
 
 let searchTools = query => {
   Axios.get(baseUrl, { params: { q: query } })

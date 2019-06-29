@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getTools } from "../api";
 
 const sectionStyles = {
   display: "flex",
@@ -7,6 +8,12 @@ const sectionStyles = {
 };
 
 const App = () => {
+  const [tools, setTools] = useState([]);
+
+  useEffect(() => {
+    getTools().then(response => setTools(response));
+  }, []);
+
   return (
     <div>
       <header>
@@ -27,7 +34,7 @@ const App = () => {
       </section>
 
       <main>
-        <p>Here goes the tools</p>
+        <p>{tools.length}</p>
       </main>
     </div>
   );
