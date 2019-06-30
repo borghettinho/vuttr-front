@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getTools } from "../api";
+import Tool from "../components/Tool";
 
 const sectionStyles = {
   display: "flex",
@@ -52,10 +53,9 @@ const App = () => {
 
       <main>
         {isLoading ? <p>Loading...</p> : null}
+
         {results.map(result => (
-          <div key={result.id}>
-            <p>Title: {result.title}</p>
-          </div>
+          <Tool result={result} />
         ))}
       </main>
     </div>
