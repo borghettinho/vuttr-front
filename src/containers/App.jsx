@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getTools, searchTools, searchTags } from "../api";
+import { getTools } from "../api";
 
 const sectionStyles = {
   display: "flex",
@@ -10,6 +10,7 @@ const sectionStyles = {
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [results, setResults] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [filterByTag, setFilterByTag] = useState(false);
 
   useEffect(() => {
@@ -18,9 +19,6 @@ const App = () => {
       setIsLoading(false);
     });
   }, []);
-
-  const handleFilter = () => setFilterByTag(!filterByTag);
-  const performSearch = value => console.log(value);
 
   return (
     <div>
@@ -35,14 +33,15 @@ const App = () => {
           <input
             type="text"
             placeholder="search"
-            onChange={e => performSearch(e.target.value)}
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
           />
           <input
             type="checkbox"
             name="toggle-tag"
             id="toggle-tag"
             checked={filterByTag}
-            onChange={() => handleFilter()}
+            onChange={() => setFilterByTag(!filterByTag)}
           />
           <label htmlFor="toggle-tag">Search in tags only</label>
         </form>
