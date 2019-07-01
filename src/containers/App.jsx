@@ -4,6 +4,8 @@ import { getTools } from "../api";
 import { H2, H4 } from "../components/Text";
 import Tool from "../components/Tool";
 
+import Search from "./Search";
+
 const sectionStyles = {
   display: "flex",
   flexDirection: "row",
@@ -13,8 +15,6 @@ const sectionStyles = {
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [results, setResults] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterByTag, setFilterByTag] = useState(false);
 
   useEffect(() => {
     getTools().then(results => {
@@ -31,25 +31,7 @@ const App = () => {
       </header>
 
       <section style={sectionStyles}>
-        {/* This form handles the search logic */}
-        <form>
-          <input
-            type="text"
-            placeholder="search"
-            value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-          />
-          <input
-            type="checkbox"
-            name="toggle-tag"
-            id="toggle-tag"
-            checked={filterByTag}
-            onChange={() => setFilterByTag(!filterByTag)}
-          />
-          <label htmlFor="toggle-tag">Search in tags only</label>
-        </form>
-
-        {/* This calls the "AddArticle" action */}
+        <Search />
         <button>+ Add</button>
       </section>
 

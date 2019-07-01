@@ -10,7 +10,7 @@ const Tool = props => {
   return (
     <Card key={props.result.id}>
       <CardHeader>
-        <a href={props.result.link} target="_blank">
+        <a href={props.result.link} target="_blank" rel="noopener noreferrer">
           {props.result.title}
         </a>
         <button style={buttonStyles}>X remove</button>
