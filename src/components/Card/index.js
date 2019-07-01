@@ -10,4 +10,10 @@ const Card = styled.div`
   }
 `;
 
-export { Card };
+const CardHeader = styled.header`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export { Card, CardHeader };

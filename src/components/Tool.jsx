@@ -1,12 +1,6 @@
 import React from "react";
 
-import { Card } from "../components/Card";
-
-const headerStyles = {
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between"
-};
+import { Card, CardHeader } from "../components/Card";
 
 const buttonStyles = { border: "none", outline: "none" };
 
@@ -15,16 +9,16 @@ const Tool = props => {
 
   return (
     <Card key={props.result.id}>
-      <header style={headerStyles}>
+      <CardHeader>
         <a href={props.result.link} target="_blank">
           {props.result.title}
         </a>
         <button style={buttonStyles}>X remove</button>
-      </header>
+      </CardHeader>
       <p>{props.result.description}</p>
       <footer />
       {tags.map(tag => (
-        <span>#{tag}</span>
+        <span key={tag}>#{tag}</span>
       ))}
     </Card>
   );

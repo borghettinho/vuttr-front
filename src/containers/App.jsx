@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getTools } from "../api";
+
+import { H2, H4 } from "../components/Text";
 import Tool from "../components/Tool";
 
 const sectionStyles = {
@@ -24,8 +26,8 @@ const App = () => {
   return (
     <div>
       <header>
-        <h2>VUTTR</h2>
-        <h4>Very Useful Tools to Remember</h4>
+        <H2>VUTTR</H2>
+        <H4>Very Useful Tools to Remember</H4>
       </header>
 
       <section style={sectionStyles}>
@@ -55,7 +57,7 @@ const App = () => {
         {isLoading ? <p>Loading...</p> : null}
 
         {results.map(result => (
-          <Tool result={result} />
+          <Tool key={result.id} result={result} />
         ))}
       </main>
     </div>
