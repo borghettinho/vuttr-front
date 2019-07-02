@@ -8,13 +8,13 @@ const defaults = `
 
 const H2 = styled.h2`
   ${defaults}
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: 600;
 `;
 
 const H4 = styled.h4`
   ${defaults}
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 600;
 `;
 
