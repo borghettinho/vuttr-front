@@ -25,6 +25,7 @@ const Search = () => {
         onChange={() => setFilterByTag(!filterByTag)}
       />
       <label htmlFor="toggle-tag">Tags only</label>
+      <button>+ Add</button>
       <p>{searchTerm}</p>
     </form>
   );

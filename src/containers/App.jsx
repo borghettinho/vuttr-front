@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getTools } from "../api";
 
 import { H2, H4 } from "../components/Text";
-import Tool from "../components/Tool";
+import ToolList from "../components/ToolList";
 
 import Search from "./Search";
 
@@ -32,15 +32,12 @@ const App = () => {
 
       <section style={sectionStyles}>
         <Search />
-        <button>+ Add</button>
       </section>
 
       <main>
         {isLoading ? <p>Loading...</p> : null}
 
-        {results.map(result => (
-          <Tool key={result.id} result={result} />
-        ))}
+        <ToolList tools={results} />
       </main>
     </div>
   );
