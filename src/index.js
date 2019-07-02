@@ -8,7 +8,19 @@ import "sanitize.css/typography.css";
 import "sanitize.css/forms.css";
 import "sanitize.css/page.css";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { reducers } from "./reducers";
+import { composeWithDevTools } from "redux-devtools-extension";
+
+const store = createStore(reducers, composeWithDevTools());
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

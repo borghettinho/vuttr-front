@@ -2,20 +2,18 @@ import React from "react";
 
 import { Card, CardHeader } from "../components/Card";
 
-const buttonStyles = { border: "none", outline: "none" };
-
 const Tool = props => {
-  let tags = props.result.tags;
+  let tags = props.tool.tags;
 
   return (
-    <Card key={props.result.id}>
+    <Card key={props.tool.id}>
       <CardHeader>
-        <a href={props.result.link} target="_blank" rel="noopener noreferrer">
-          {props.result.title}
+        <a href={props.tool.link} target="_blank" rel="noopener noreferrer">
+          {props.tool.title}
         </a>
-        <button style={buttonStyles}>X remove</button>
+        <button>X remove</button>
       </CardHeader>
-      <p>{props.result.description}</p>
+      <p>{props.tool.description}</p>
       <footer />
       {tags.map(tag => (
         <span key={tag}>#{tag}</span>

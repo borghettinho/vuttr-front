@@ -11,7 +11,7 @@ const Search = () => {
   }, 1000);
 
   return (
-    <form>
+    <div>
       <TextInput
         type="text"
         placeholder="Search"
@@ -27,7 +27,7 @@ const Search = () => {
       <label htmlFor="toggle-tag">Tags only</label>
       <button>+ Add</button>
       <p>{searchTerm}</p>
-    </form>
+    </div>
   );
 };
 
