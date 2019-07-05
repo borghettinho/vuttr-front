@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { actions } from "../actions/getTools";
 import { selectors } from "../selectors/getTools";
 
 import { H2, H4 } from "../components/Text";

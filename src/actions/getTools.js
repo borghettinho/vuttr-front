@@ -17,7 +17,7 @@ const actions = {
     }
   }),
   toggleByTag: () => ({
-    type: actionTypes.SEARCH_BY_TAG
+    type: actionTypes.TOGGLE_BY_TAG
   })
 };
 
