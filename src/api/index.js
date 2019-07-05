@@ -10,7 +10,7 @@ let getTools = () =>
 let searchTools = query => {
   Axios.get(baseUrl, { params: { q: query } })
     .catch(e => console.log(e)) // placeholder error catchers
-    .then(response => response);
+    .then(response => response.data);
 };
 
 let searchTags = query => {

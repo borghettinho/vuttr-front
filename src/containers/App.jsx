@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { getTools } from "../api";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import { selectors } from "../selectors/getTools";
 
 import { H2, H4 } from "../components/Text";
 import ToolList from "../components/ToolList";
@@ -13,14 +15,11 @@ const sectionStyles = {
 };
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [results, setResults] = useState([]);
+  const tools = useSelector(selectors.getTools);
+  const loading = useSelector(selectors.getLoadingState);
 
   useEffect(() => {
-    getTools().then(results => {
-      setResults(results);
-      setIsLoading(false);
-    });
+    console.log("hey, i load");
   }, []);
 
   return (
@@ -35,9 +34,9 @@ const App = () => {
       </section>
 
       <main>
-        {isLoading ? <p>Loading...</p> : null}
+        {loading ? <p>Loading...</p> : null}
 
-        <ToolList tools={results} />
+        <ToolList tools={tools} />
       </main>
     </div>
   );

@@ -1,13 +1,23 @@
-import React, { useState } from "react";
-import { TextInput } from "../components/Input";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectors } from "../selectors/getTools";
+import { actions } from "../actions/getTools";
+
 import { useDebouncedCallback } from "use-debounce";
 
+import { TextInput } from "../components/Input";
+
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterByTag, setFilterByTag] = useState(false);
+  const byTag = useSelector(selectors.getByTagFilter);
+  const dispatch = useDispatch();
+
+  const handleToggle = () => dispatch(actions.toggleByTag());
+
   const [debouncedSearch] = useDebouncedCallback(value => {
-    // TODO - Find some way to fetch data from search
-    setSearchTerm(value);
+    byTag
+      ? dispatch(actions.searchByTag(value))
+      : dispatch(actions.searchTools(value));
   }, 1000);
 
   return (
@@ -21,12 +31,11 @@ const Search = () => {
         type="checkbox"
         name="toggle-tag"
         id="toggle-tag"
-        checked={filterByTag}
-        onChange={() => setFilterByTag(!filterByTag)}
+        onChange={handleToggle}
       />
       <label htmlFor="toggle-tag">Tags only</label>
       <button>+ Add</button>
-      <p>{searchTerm}</p>
+      {/* <p>{searchTerm}</p> */}
     </div>
   );
 };
