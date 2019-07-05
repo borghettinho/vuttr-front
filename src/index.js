@@ -10,10 +10,10 @@ import "sanitize.css/page.css";
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { reducers } from "./reducers";
+import { rootReducer } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(reducers, composeWithDevTools());
+const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
   <Provider store={store}>

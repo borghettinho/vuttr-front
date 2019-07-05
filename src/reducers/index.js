@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import { reducers as getToolReducer } from "./getTool";
+import { getToolsReducer } from "./getTools";
 
-const reducers = combineReducers({
-  getToolReducer
+const rootReducer = combineReducers({
+  getToolsReducer
 });
 
-export { reducers };
+export { rootReducer };

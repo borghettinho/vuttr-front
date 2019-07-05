@@ -1,6 +1,5 @@
 const actionTypes = {
-  GET_TOOLS: "GET_TOOLS",
-  TOGGLE_BY_TAG: "TOGGLE_BY_TAG"
+  GET_TOOLS: "GET_TOOLS"
 };
 
 export { actionTypes };
