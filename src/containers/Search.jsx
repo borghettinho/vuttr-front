@@ -9,10 +9,11 @@ import { useDebouncedCallback } from "use-debounce";
 import { TextInput } from "../components/Input";
 
 const Search = () => {
-  const byTag = useSelector(selectors.getByTagFilter);
   const dispatch = useDispatch();
+  const byTag = useSelector(selectors.getByTagFilter);
 
   const handleToggle = () => dispatch(actions.toggleByTag());
+  const handleClick = () => dispatch(actions.getTools());
 
   const [debouncedSearch] = useDebouncedCallback(value => {
     byTag
@@ -34,7 +35,7 @@ const Search = () => {
         onChange={handleToggle}
       />
       <label htmlFor="toggle-tag">Tags only</label>
-      <button>+ Add</button>
+      <button onClick={handleClick}>+ Add</button>
       {/* <p>{searchTerm}</p> */}
     </div>
   );
