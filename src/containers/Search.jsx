@@ -36,7 +36,6 @@ const Search = () => {
       />
       <label htmlFor="toggle-tag">Tags only</label>
       <button onClick={handleClick}>+ Add</button>
-      {/* <p>{searchTerm}</p> */}
     </div>
   );
 };
