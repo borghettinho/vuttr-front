@@ -17,7 +17,7 @@ const sectionStyles = {
 
 const App = () => {
   const dispatch = useDispatch();
-  const fetchTools = () => dispatch(actions.getTools());
+  const fetchTools = () => dispatch(actions.searchTools(""));
 
   const tools = useSelector(selectors.getTools);
 
