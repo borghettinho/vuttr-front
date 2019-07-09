@@ -20,7 +20,6 @@ const App = () => {
   const fetchTools = () => dispatch(actions.getTools());
 
   const tools = useSelector(selectors.getTools);
-  const loading = useSelector(selectors.getLoadingState);
 
   useEffect(() => {
     fetchTools();
@@ -38,8 +37,6 @@ const App = () => {
       </section>
 
       <main>
-        {loading ? <p>Loading...</p> : null}
-
         <ToolList tools={tools} />
       </main>
     </div>
