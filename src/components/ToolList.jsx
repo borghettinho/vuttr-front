@@ -1,7 +1,7 @@
 import React from "react";
 import Tool from "./Tool";
 
-const ToolList = props => {
+const ToolList = React.memo(props => {
   return (
     <div>
       {props.tools.map(tool => (
@@ -9,6 +9,6 @@ const ToolList = props => {
       ))}
     </div>
   );
-};
+});
 
 export default ToolList;

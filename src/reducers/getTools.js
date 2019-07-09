@@ -1,7 +1,7 @@
 import { actionTypes } from "../constants";
 
 const INITIAL_STATE = {
-  loading: true,
+  loading: false,
   tools: [],
   byTag: false
 };
@@ -20,7 +20,10 @@ const getToolsReducer = (state = INITIAL_STATE, action) => {
     case actionTypes.TOGGLE_BY_TAG:
       return { ...state, byTag: !state.byTag };
 
-    case actionTypes.GOT_TOOLS:
+    case actionTypes.FETCH_TOOLS_SUCCEED:
+      return { ...state, loading: false, tools: action.tools };
+
+    case actionTypes.FETCH_TOOLS_FAILED:
       return { ...state, loading: false };
 
     default:

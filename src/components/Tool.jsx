@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card, CardHeader } from "../components/Card";
 
-const Tool = props => {
+const Tool = React.memo(props => {
   let tags = props.tool.tags;
 
   return (
@@ -20,6 +20,6 @@ const Tool = props => {
       ))}
     </Card>
   );
-};
+});
 
 export default Tool;

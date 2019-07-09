@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { selectors } from "../selectors/getTools";
+import { actions } from "../actions/getTools";
 
 import { H2, H4 } from "../components/Text";
 import ToolList from "../components/ToolList";
@@ -15,11 +16,13 @@ const sectionStyles = {
 };
 
 const App = () => {
+  const dispatch = useDispatch();
+  const fetchTools = () => dispatch(actions.getTools());
+
   const tools = useSelector(selectors.getTools);
-  const loading = useSelector(selectors.getLoadingState);
 
   useEffect(() => {
-    console.log("hey, i load");
+    fetchTools();
   }, []);
 
   return (
@@ -34,8 +37,6 @@ const App = () => {
       </section>
 
       <main>
-        {loading ? <p>Loading...</p> : null}
-
         <ToolList tools={tools} />
       </main>
     </div>

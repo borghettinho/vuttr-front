@@ -9,11 +9,20 @@ import "sanitize.css/forms.css";
 import "sanitize.css/page.css";
 
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import createSagaMiddleware from "redux-saga";
+import { fetchToolsSaga } from "./sagas/fetchToolsSaga";
 import { rootReducer } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(rootReducer, composeWithDevTools());
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
+
+sagaMiddleware.run(fetchToolsSaga);
 
 ReactDOM.render(
   <Provider store={store}>
