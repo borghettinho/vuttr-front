@@ -1,33 +1,50 @@
-import Axios from "axios";
+import axios from "axios";
 
 const baseUrl = "http://localhost:3000/tools";
 
-let getTools = () =>
-  Axios.get(baseUrl)
-    .catch(e => console.log(e)) // placeholder error catchers
-    .then(response => response.data);
-
-let searchTools = query => {
-  Axios.get(baseUrl, { params: { q: query } })
-    .catch(e => console.log(e)) // placeholder error catchers
-    .then(response => response.data);
+const getTools = async () => {
+  try {
+    const response = await axios.get(baseUrl);
+    return response.data;
+  } catch (e) {
+    return e.message;
+  }
 };
 
-let searchTags = query => {
-  Axios.get(baseUrl, { params: { tags_like: query } })
-    .catch(e => console.log(e)) // placeholder error catchers
-    .then(response => console.log(response.data));
+const searchTools = async query => {
+  try {
+    const response = await axios.get(baseUrl, { params: { q: query } });
+    return response.data;
+  } catch (e) {
+    return e.message;
+  }
 };
 
-let addTool = data =>
-  Axios.post(baseUrl, data)
-    .catch(e => console.log(e)) // placeholder error catchers
-    .then(response => console.log(response.data));
-
-let deleteTool = id => {
-  Axios.delete(`${baseUrl}/${id}`)
-    .catch(e => console.log(e)) // placeholder error catchers
-    .then(response => console.log(response.data));
+const searchTags = async query => {
+  try {
+    const response = await axios.get(baseUrl, { params: { tags_like: query } });
+    return response.data;
+  } catch (e) {
+    return e.message;
+  }
 };
 
-export { getTools, searchTools, searchTags, addTool, deleteTool };
+const addTool = async data => {
+  try {
+    const response = await axios.post(baseUrl, data);
+    return response.data;
+  } catch (e) {
+    return e.message;
+  }
+};
+
+const deleteTool = async id => {
+  try {
+    const response = await axios.deconste(`${baseUrl}/${id}`);
+    return response.data;
+  } catch (e) {
+    return e.message;
+  }
+};
+
+export { getTools, searchTools, addTool, deleteTool, searchTags };
