@@ -2,6 +2,15 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:3000/tools";
 
+const getTools = async () => {
+  try {
+    const response = await axios.get(baseUrl);
+    return response.data;
+  } catch (e) {
+    return e.message;
+  }
+};
+
 const searchTools = async query => {
   try {
     const response = await axios.get(baseUrl, { params: { q: query } });
@@ -38,4 +47,4 @@ const deleteTool = async id => {
   }
 };
 
-export { searchTools, searchTags, addTool, deleteTool };
+export { getTools, searchTools, addTool, deleteTool, searchTags };
