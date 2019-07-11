@@ -11,7 +11,7 @@ import "sanitize.css/page.css";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import { fetchToolsSaga } from "./sagas/fetchToolsSaga";
+import { rootSaga } from "./sagas";
 import { rootReducer } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -22,7 +22,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
-sagaMiddleware.run(fetchToolsSaga);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>

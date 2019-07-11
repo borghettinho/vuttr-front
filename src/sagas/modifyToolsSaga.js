@@ -4,12 +4,13 @@ import { actionTypes } from "../constants";
 
 function* deleteTool(action) {
   try {
-    yield call(api.deleteTool, action.payload.id);
-  } catch (e) {}
+    const response = yield call(api.deleteTool, action.payload.id);
+    yield put({ type: actionTypes.FETCH_TOOLS_SUCCEED });
+  } catch (e) {
+    yield put({ type: actionTypes.DELETE_TOOL_FAILED });
+  }
 }
 
-function* modifyToolsSaga() {
-  takeEvery(actionTypes.DELETE_TOOL, deleteTool);
+export function* modifyToolsSaga() {
+  yield takeEvery(actionTypes.DELETE_TOOL, deleteTool);
 }
-
-export { modifyToolsSaga };
