@@ -11,7 +11,7 @@ const actions = {
     }
   }),
   searchByTag: value => ({
-    type: actionTypes.SEARCH_BY_TAG,
+    type: actionTypes.SEARCH_TAGS,
     payload: {
       query: value
     }
