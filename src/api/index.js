@@ -40,7 +40,7 @@ const addTool = async data => {
 
 const deleteTool = async id => {
   try {
-    const response = await axios.deconste(`${baseUrl}/${id}`);
+    const response = await axios.delete(`${baseUrl}/${id}`);
     return response.data;
   } catch (e) {
     return e.message;

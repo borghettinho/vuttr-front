@@ -4,8 +4,9 @@ import { actionTypes } from "../constants";
 
 function* deleteTool(action) {
   try {
-    const response = yield call(api.deleteTool, action.payload.id);
-    yield put({ type: actionTypes.FETCH_TOOLS_SUCCEED });
+    yield call(api.deleteTool, action.payload.id);
+    const tools = yield call(api.getTools);
+    yield put({ type: actionTypes.FETCH_TOOLS_SUCCEED, tools: tools });
   } catch (e) {
     yield put({ type: actionTypes.DELETE_TOOL_FAILED });
   }

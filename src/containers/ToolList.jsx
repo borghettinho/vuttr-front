@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 
+import { useSelector, useDispatch } from "react-redux";
 import { selectors } from "../selectors/getTools";
 import { actions as fetchActions } from "../actions/getTools";
 import { actions as modifyActions } from "../actions/modifyTools";
+
 import Tool from "../components/Tool";
 
 const ToolList = React.memo(() => {
   const dispatch = useDispatch();
   const fetchTools = () => dispatch(fetchActions.getTools());
-  const deleteTool = id => dispatch(modifyActions.deleteTool(IDBDatabase));
+  const deleteTool = id => dispatch(modifyActions.deleteTool(id));
 
   const tools = useSelector(selectors.getTools);
 
