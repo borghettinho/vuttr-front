@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectors } from "../selectors/getTools";
+import { selectors } from "../selectors";
 import { actions } from "../actions/getTools";
 
 import { useDebouncedCallback } from "use-debounce";
@@ -14,7 +14,6 @@ const Search = () => {
   const loading = useSelector(selectors.getLoadingState);
 
   const handleToggle = () => dispatch(actions.toggleByTag());
-
   const [debouncedSearch] = useDebouncedCallback(value => {
     byTag
       ? dispatch(actions.searchByTag(value))

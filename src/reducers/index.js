@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
-import { getToolsReducer } from "./getTools";
-import { modifyToolsReducer } from "./modifyTools";
+import { fetchToolsReducer } from "./fetchTools";
+import { deleteToolReducer } from "./deleteTool";
 
 const rootReducer = combineReducers({
-  getToolsReducer,
-  modifyToolsReducer
+  fetchToolsReducer,
+  deleteToolReducer
 });
 
 export { rootReducer };

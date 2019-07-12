@@ -7,15 +7,15 @@ const INITIAL_STATE = {
   newTags: [""]
 };
 
-const modifyToolsReducer = (state = INITIAL_STATE, action) => {
+const deleteToolReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case actionTypes.DELETE_TOOL:
+    case actionTypes.delete.DELETE_TOOL:
       return { ...state };
 
-    case actionTypes.DELETE_TOOL_SUCCEED:
+    case actionTypes.delete.DELETE_TOOL_SUCCEED:
       return { ...state };
 
-    case actionTypes.DELETE_TOOL_FAILED:
+    case actionTypes.delete.DELETE_TOOL_FAILED:
       return { ...state };
 
     default:
@@ -23,4 +23,4 @@ const modifyToolsReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export { modifyToolsReducer };
+export { deleteToolReducer };
